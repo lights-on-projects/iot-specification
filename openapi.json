@@ -1,0 +1,1636 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "IoT. Карта Офиса. API",
+    "description": "Веб-сервис для интеграции Карт Офиса с Home Assistant.",
+    "version": "0.1.0"
+  },
+  "tags": [
+    {
+      "name": "Services"
+    },
+    {
+      "name": "Events"
+    }
+  ],
+  "paths": {
+    "/devices/{device_id}/services": {
+      "get": {
+        "operationId": "Services_getServices",
+        "summary": "Список сервисов устройства",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Usecases.DeviceParameters"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Список сервисов устройства в порядке отображения в пользовательском интерфейсе.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "status",
+                        "data"
+                      ],
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "ok"
+                          ]
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Entities.AnyService"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "examples": {
+                  "Ящик (закрыт, заблокирован)": {
+                    "summary": "Ящик (закрыт, заблокирован)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "drawer.switch",
+                          "device_id": "drawer",
+                          "type": "switch",
+                          "view": "lock",
+                          "name": "Замок",
+                          "state": false,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.mode",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "mode",
+                          "name": "Тип",
+                          "state": false,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.door",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": false,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Ящик (закрыт, разблокирован)": {
+                    "summary": "Ящик (закрыт, разблокирован)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "drawer.switch",
+                          "device_id": "drawer",
+                          "type": "switch",
+                          "view": "lock",
+                          "name": "Замок",
+                          "state": false,
+                          "readonly": false
+                        },
+                        {
+                          "id": "drawer.mode",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "mode",
+                          "name": "Тип",
+                          "state": true,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.door",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": false,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Ящик (открыт, заблокирован)": {
+                    "summary": "Ящик (открыт, заблокирован)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "drawer.switch",
+                          "device_id": "drawer",
+                          "type": "switch",
+                          "view": "lock",
+                          "name": "Замок",
+                          "state": true,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.mode",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "mode",
+                          "name": "Тип",
+                          "state": false,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.door",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": true,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Ящик (открыт, разблокирован)": {
+                    "summary": "Ящик (открыт, разблокирован)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "drawer.switch",
+                          "device_id": "drawer",
+                          "type": "switch",
+                          "view": "lock",
+                          "name": "Замок",
+                          "state": true,
+                          "readonly": false
+                        },
+                        {
+                          "id": "drawer.mode",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "mode",
+                          "name": "Тип",
+                          "state": true,
+                          "readonly": true
+                        },
+                        {
+                          "id": "drawer.door",
+                          "device_id": "drawer",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": true,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Почтомат (закрыт)": {
+                    "summary": "Почтомат (закрыт)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "parcel.button",
+                          "device_id": "parcel",
+                          "type": "button",
+                          "view": "",
+                          "name": "Замок",
+                          "state": false,
+                          "readonly": false
+                        },
+                        {
+                          "id": "parcel.door",
+                          "device_id": "parcel",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": false,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Почтомат (открыт)": {
+                    "summary": "Почтомат (открыт)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "parcel.button",
+                          "device_id": "parcel",
+                          "type": "button",
+                          "view": "",
+                          "name": "Замок",
+                          "state": false,
+                          "readonly": true
+                        },
+                        {
+                          "id": "parcel.door",
+                          "device_id": "parcel",
+                          "type": "boolean-sensor",
+                          "view": "door",
+                          "name": "Дверь локера",
+                          "state": true,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Розетка (выключена)": {
+                    "summary": "Розетка (выключена)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "socket.switch",
+                          "device_id": "socket",
+                          "type": "switch",
+                          "name": "Розетка",
+                          "view": "socket",
+                          "state": false,
+                          "readonly": false
+                        },
+                        {
+                          "id": "socket.counter",
+                          "device_id": "socket",
+                          "type": "counter",
+                          "view": "",
+                          "name": "Расход (кВт⋅ч)",
+                          "state": 15,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Розетка (включена)": {
+                    "summary": "Розетка (включена)",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "socket.switch",
+                          "device_id": "socket",
+                          "type": "switch",
+                          "name": "Розетка",
+                          "view": "socket",
+                          "state": true,
+                          "readonly": false
+                        },
+                        {
+                          "id": "socket.counter",
+                          "device_id": "socket",
+                          "type": "counter",
+                          "view": "",
+                          "name": "Расход (кВт⋅ч)",
+                          "state": 17,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  },
+                  "Туалет": {
+                    "summary": "Туалет",
+                    "value": {
+                      "statusCode": 200,
+                      "status": "ok",
+                      "data": [
+                        {
+                          "id": "toilet.history",
+                          "device_id": "toilet",
+                          "type": "history",
+                          "view": "",
+                          "name": "Недавние посещения",
+                          "state": [
+                            "16:50",
+                            "15:30",
+                            "14:58",
+                            "14:20"
+                          ],
+                          "readonly": true
+                        },
+                        {
+                          "id": "toilet.opening-counter",
+                          "device_id": "toilet",
+                          "type": "counter",
+                          "view": "",
+                          "name": "Открытий",
+                          "state": 254,
+                          "readonly": true
+                        },
+                        {
+                          "id": "toilet.closing-counter",
+                          "device_id": "toilet",
+                          "type": "counter",
+                          "view": "",
+                          "name": "Закрытий",
+                          "state": 120,
+                          "readonly": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Устройство с указанным device_id не найдено.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "NOT_FOUND"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "status": "error",
+                  "error": "NOT_FOUND",
+                  "message": "Device (id: absent) not found."
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/devices/{device_id}/services/{service_id}": {
+      "get": {
+        "operationId": "Services_getService",
+        "summary": "Сервис устройства",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Usecases.DeviceParameters"
+          },
+          {
+            "$ref": "#/components/parameters/Usecases.ServiceParameters.service_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Сервис устройства.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Entities.AnyService"
+                    }
+                  }
+                },
+                "examples": {
+                  "Ящик (закрыт, заблокирован). Переключатель": {
+                    "summary": "Ящик (закрыт, заблокирован). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.switch",
+                        "device_id": "drawer",
+                        "type": "switch",
+                        "view": "lock",
+                        "name": "Замок",
+                        "state": false,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Ящик (закрыт, разблокирован). Переключатель": {
+                    "summary": "Ящик (закрыт, разблокирован). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.switch",
+                        "device_id": "drawer",
+                        "type": "switch",
+                        "view": "lock",
+                        "name": "Замок",
+                        "state": false,
+                        "readonly": false
+                      }
+                    }
+                  },
+                  "Ящик (открыт, заблокирован). Переключатель": {
+                    "summary": "Ящик (открыт, заблокирован). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.switch",
+                        "device_id": "drawer",
+                        "type": "switch",
+                        "view": "lock",
+                        "name": "Замок",
+                        "state": true,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Ящик (открыт, разблокирован). Переключатель": {
+                    "summary": "Ящик (открыт, разблокирован). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.switch",
+                        "device_id": "drawer",
+                        "type": "switch",
+                        "view": "lock",
+                        "name": "Замок",
+                        "state": true,
+                        "readonly": false
+                      }
+                    }
+                  },
+                  "Ящик (заблокирован). Режим работы": {
+                    "summary": "Ящик (заблокирован). Режим работы",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.mode",
+                        "device_id": "drawer",
+                        "type": "boolean-sensor",
+                        "view": "mode",
+                        "name": "Тип",
+                        "state": false,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Ящик (разблокирован). Режим работы": {
+                    "summary": "Ящик (разблокирован). Режим работы",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.mode",
+                        "device_id": "drawer",
+                        "type": "boolean-sensor",
+                        "view": "mode",
+                        "name": "Тип",
+                        "state": true,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Ящик (закрыт). Дверь": {
+                    "summary": "Ящик (закрыт). Дверь",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.door",
+                        "device_id": "drawer",
+                        "type": "boolean-sensor",
+                        "view": "door",
+                        "name": "Дверь локера",
+                        "state": false,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Ящик (открыт). Дверь": {
+                    "summary": "Ящик (открыт). Дверь",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "drawer.door",
+                        "device_id": "drawer",
+                        "type": "boolean-sensor",
+                        "view": "door",
+                        "name": "Дверь локера",
+                        "state": true,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Почтомат (закрыт). Кнопка": {
+                    "summary": "Почтомат (закрыт). Кнопка",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "parcel.button",
+                        "device_id": "parcel",
+                        "type": "button",
+                        "view": "",
+                        "name": "Замок",
+                        "state": false,
+                        "readonly": false
+                      }
+                    }
+                  },
+                  "Почтомат (открыт). Кнопка": {
+                    "summary": "Почтомат (открыт). Кнопка",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "parcel.button",
+                        "device_id": "parcel",
+                        "type": "button",
+                        "view": "",
+                        "name": "Замок",
+                        "state": false,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Почтомат (закрыт). Дверь": {
+                    "summary": "Почтомат (закрыт). Дверь",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "parcel.door",
+                        "device_id": "parcel",
+                        "type": "boolean-sensor",
+                        "view": "door",
+                        "name": "Дверь локера",
+                        "state": false,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Почтомат (открыт). Дверь": {
+                    "summary": "Почтомат (открыт). Дверь",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "parcel.door",
+                        "device_id": "parcel",
+                        "type": "boolean-sensor",
+                        "view": "door",
+                        "name": "Дверь локера",
+                        "state": true,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Розетка (выключена). Переключатель": {
+                    "summary": "Розетка (выключена). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "socket.switch",
+                        "device_id": "socket",
+                        "type": "switch",
+                        "name": "Розетка",
+                        "view": "socket",
+                        "state": false,
+                        "readonly": false
+                      }
+                    }
+                  },
+                  "Розетка (включена). Переключатель": {
+                    "summary": "Розетка (включена). Переключатель",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "socket.switch",
+                        "device_id": "socket",
+                        "type": "switch",
+                        "name": "Розетка",
+                        "view": "socket",
+                        "state": true,
+                        "readonly": false
+                      }
+                    }
+                  },
+                  "Розетка (выключена). Расход": {
+                    "summary": "Розетка (выключена). Расход",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "socket.counter",
+                        "device_id": "socket",
+                        "type": "counter",
+                        "view": "",
+                        "name": "Расход (кВт⋅ч)",
+                        "state": 15,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Розетка (включена). Расход": {
+                    "summary": "Розетка (включена). Расход",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "socket.counter",
+                        "device_id": "socket",
+                        "type": "counter",
+                        "view": "",
+                        "name": "Расход (кВт⋅ч)",
+                        "state": 17,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Недавние посещения туалета": {
+                    "summary": "Недавние посещения туалета",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "toilet.history",
+                        "device_id": "toilet",
+                        "type": "history",
+                        "view": "",
+                        "name": "Недавние посещения",
+                        "state": [
+                          "16:50",
+                          "15:30",
+                          "14:58",
+                          "14:20"
+                        ],
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Кол-во открытий туалета": {
+                    "summary": "Кол-во открытий туалета",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "toilet.opening-counter",
+                        "device_id": "toilet",
+                        "type": "counter",
+                        "view": "",
+                        "name": "Открытий",
+                        "state": 254,
+                        "readonly": true
+                      }
+                    }
+                  },
+                  "Кол-во закрытий туалета": {
+                    "summary": "Кол-во закрытий туалета",
+                    "value": {
+                      "status": "ok",
+                      "data": {
+                        "id": "toilet.closing-counter",
+                        "device_id": "toilet",
+                        "type": "counter",
+                        "view": "",
+                        "name": "Закрытий",
+                        "state": 120,
+                        "readonly": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Устройство с указанным device_id или сервис с указанным service_id не найдены.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "NOT_FOUND"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "examples": {
+                  "Сервис не найден": {
+                    "summary": "Сервис не найден",
+                    "value": {
+                      "status": "error",
+                      "error": "NOT_FOUND",
+                      "message": "Service (id: socket.absent) not found."
+                    }
+                  },
+                  "Устройство не найдено": {
+                    "summary": "Устройство не найдено",
+                    "value": {
+                      "status": "error",
+                      "error": "NOT_FOUND",
+                      "message": "Device (id: absent) not found."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/devices/{device_id}/services/{service_id}/state": {
+      "put": {
+        "operationId": "Services_updateServiceState",
+        "summary": "Изменить текущее состояние сервиса устройства",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Usecases.DeviceParameters"
+          },
+          {
+            "$ref": "#/components/parameters/Usecases.ServiceParameters.service_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Измененное состояние сервиса устройства.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Entities.ServiceState"
+                    }
+                  }
+                },
+                "examples": {
+                  "Открыть ящик": {
+                    "summary": "Открыть ящик",
+                    "value": {
+                      "status": "ok",
+                      "data": true
+                    }
+                  },
+                  "Закрыть ящик": {
+                    "summary": "Закрыть ящик",
+                    "value": {
+                      "status": "ok",
+                      "data": false
+                    }
+                  },
+                  "Открыть почтомат": {
+                    "summary": "Открыть почтомат",
+                    "description": "На сервис с типом button можно послать только значение true,\nчто символизирует нажатие на кнопку.\nПосле нажатия кнопка возвращается в исходное положение,\nпоэтому сервис с типом button всегда имеет состояние false.",
+                    "value": {
+                      "status": "ok",
+                      "data": false
+                    }
+                  },
+                  "Включить розетку": {
+                    "summary": "Включить розетку",
+                    "value": {
+                      "status": "ok",
+                      "data": true
+                    }
+                  },
+                  "Выключить розетку": {
+                    "summary": "Выключить розетку",
+                    "value": {
+                      "status": "ok",
+                      "data": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Некорректный запрос.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "VALIDATION"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "examples": {
+                  "Установить невалидное значение": {
+                    "summary": "Установить невалидное значение",
+                    "value": {
+                      "status": "error",
+                      "error": "VALIDATION",
+                      "message": "Invalid service state."
+                    }
+                  },
+                  "Поднять кнопку": {
+                    "summary": "Поднять кнопку",
+                    "description": "На сервис с типом button можно послать только значение true,\nчто символизирует нажатие на кнопку.\nПосле нажатия кнопка возвращается в исходное положение,\nпоэтому сервис с типом button всегда имеет состояние false.",
+                    "value": {
+                      "status": "error",
+                      "error": "VALIDATION",
+                      "message": "Invalid service state."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Устройство с указанным device_id или сервис с указанным service_id не найдены.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "NOT_FOUND"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "examples": {
+                  "Сервис не найден": {
+                    "summary": "Сервис не найден",
+                    "value": {
+                      "status": "error",
+                      "error": "NOT_FOUND",
+                      "message": "Service (id: socket.absent) not found."
+                    }
+                  },
+                  "Устройство не найдено": {
+                    "summary": "Устройство не найдено",
+                    "value": {
+                      "status": "error",
+                      "error": "NOT_FOUND",
+                      "message": "Device (id: absent) not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Состояние сервиса доступно только для чтения.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "READONLY_SERVICE"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "status": "error",
+                  "error": "READONLY_SERVICE",
+                  "message": "Service (id: socket.counter) is readonly."
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Services"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Entities.ServiceState"
+              },
+              "examples": {
+                "Открыть ящик": {
+                  "summary": "Открыть ящик",
+                  "value": true
+                },
+                "Закрыть ящик": {
+                  "summary": "Закрыть ящик",
+                  "value": false
+                },
+                "Открыть почтомат": {
+                  "summary": "Открыть почтомат",
+                  "description": "На сервис с типом button можно послать только значение true,\nчто символизирует нажатие на кнопку.\nПосле нажатия кнопка возвращается в исходное положение,\nпоэтому сервис с типом button всегда имеет состояние false.",
+                  "value": true
+                },
+                "Включить розетку": {
+                  "summary": "Включить розетку",
+                  "value": true
+                },
+                "Выключить розетку": {
+                  "summary": "Выключить розетку",
+                  "value": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events": {
+      "post": {
+        "operationId": "Events_createEvent",
+        "summary": "Сохранить событие Home Assistant",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Событие сохранено.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Запрос проигнорирован.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Responses.IgnoreResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Некорректный запрос.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "VALIDATION"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "status": "error",
+                  "error": "VALIDATION",
+                  "message": "Invalid event."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Сервис с указанным service_id не найден.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "NOT_FOUND"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "error",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "status": "error",
+                  "error": "NOT_FOUND",
+                  "message": "Service (id: socket.absent) not found."
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Events"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "event": {
+                    "$ref": "#/components/schemas/Entities.Event"
+                  }
+                },
+                "required": [
+                  "event"
+                ]
+              },
+              "example": {
+                "event": {
+                  "service_id": "socket.counter",
+                  "state": "16"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Usecases.DeviceParameters": {
+        "name": "device_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/Entities.id"
+        }
+      },
+      "Usecases.ServiceParameters.service_id": {
+        "name": "service_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/Entities.id"
+        }
+      }
+    },
+    "schemas": {
+      "Entities.AnyService": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Entities.ServiceTypes.Button"
+          },
+          {
+            "$ref": "#/components/schemas/Entities.ServiceTypes.Switch"
+          },
+          {
+            "$ref": "#/components/schemas/Entities.ServiceTypes.BooleanSensor"
+          },
+          {
+            "$ref": "#/components/schemas/Entities.ServiceTypes.Counter"
+          },
+          {
+            "$ref": "#/components/schemas/Entities.ServiceTypes.History"
+          },
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "Перечисление типов доступных на текущий момент сервисов.\nКаждый сервис имеет тип <a href='#model-Entities.Service'>Entities.Service</a>."
+      },
+      "Entities.Event": {
+        "type": "object",
+        "required": [
+          "service_id",
+          "state"
+        ],
+        "properties": {
+          "service_id": {
+            "$ref": "#/components/schemas/Entities.id"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "description": "Событие Home Assistant",
+        "example": {
+          "service_id": "socket.counter",
+          "state": "16"
+        }
+      },
+      "Entities.Service": {
+        "type": "object",
+        "required": [
+          "id",
+          "device_id",
+          "type",
+          "view",
+          "name",
+          "state",
+          "readonly"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Entities.id"
+          },
+          "device_id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Entities.id"
+              }
+            ],
+            "description": "Идентификатор устройства, частью которого является сервис."
+          },
+          "type": {
+            "type": "string",
+            "description": "Тип сервиса, определяющий его поведение (переключатель, датчик и т.д.).\n\nПолный список типов сервисов: <a href='#model-Entities.AnyService'>Entities.AnyService</a>."
+          },
+          "view": {
+            "type": "string",
+            "description": "Режим отображения сервиса на клиенте.\n\nРазличается в зависимости от типа сервиса.\nПри отсутвии значения – пустая строка."
+          },
+          "name": {
+            "type": "string",
+            "description": "Название сервиса, отображаемое на клиенте."
+          },
+          "state": {
+            "$ref": "#/components/schemas/Entities.ServiceState"
+          },
+          "readonly": {
+            "type": "boolean",
+            "description": "Указывает, можно ли послать запрос на изменение состояния сервиса."
+          }
+        },
+        "description": "Компонент устройства, который определеяет одно из его поведений (кнопка, датчик и т.д.).\n\nКонтролируется за счет изменения состояния (state).\n\nСостояние сервиса может быть редактируемым и нередактируемым (readonly) в зависимости от состояний других сервисов.\nНекоторые сервисы, например, датчики и счетчики нередактируемые (readonly) всегда."
+      },
+      "Entities.ServiceState": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {}
+        ],
+        "description": "Состояние устройства. Различается в зависимости от <a href='#model-Entities.AnyService'>типа устройства</a>."
+      },
+      "Entities.ServiceTypes.BooleanSensor": {
+        "type": "object",
+        "required": [
+          "type",
+          "view",
+          "state",
+          "readonly"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "boolean-sensor"
+            ]
+          },
+          "view": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "door",
+                  "mode"
+                ]
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Режим отображения сервиса на клиенте.\n\ndoor – отображать как статус открытости двери (true – открыта, false – закрыта).\n\nmode – отображать как статус режима работы (true – автоматический, false – ручной)."
+          },
+          "state": {
+            "type": "boolean"
+          },
+          "readonly": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "Бинарный датчик (отображает одно из двух значений).",
+        "example": {
+          "id": "parcel.door",
+          "device_id": "parcel",
+          "type": "boolean-sensor",
+          "view": "door",
+          "name": "Дверь локера",
+          "state": false,
+          "readonly": true
+        }
+      },
+      "Entities.ServiceTypes.Button": {
+        "type": "object",
+        "required": [
+          "type",
+          "state"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "button"
+            ]
+          },
+          "state": {
+            "type": "boolean",
+            "enum": [
+              false
+            ],
+            "description": "Состояние устройства. Всегда false."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "Кнопка.\n\nНа сервис с типом button можно послать только значение true,\nчто символизирует нажатие на кнопку.\nПосле нажатия кнопка возвращается в исходное положение,\nпоэтому сервис с типом button всегда имеет состояние false.",
+        "example": {
+          "id": "parcel.button",
+          "device_id": "parcel",
+          "type": "button",
+          "view": "",
+          "name": "Замок",
+          "state": false,
+          "readonly": false
+        }
+      },
+      "Entities.ServiceTypes.Counter": {
+        "type": "object",
+        "required": [
+          "type",
+          "state",
+          "readonly"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "counter"
+            ]
+          },
+          "state": {
+            "type": "integer"
+          },
+          "readonly": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "Счетчик чего-либо (расход электроэнергии, кол-во открытий и закрытий двери).",
+        "example": {
+          "id": "socket.counter",
+          "device_id": "socket",
+          "type": "counter",
+          "view": "",
+          "name": "Расход (кВт⋅ч)",
+          "state": 17,
+          "readonly": true
+        }
+      },
+      "Entities.ServiceTypes.History": {
+        "type": "object",
+        "required": [
+          "type",
+          "state",
+          "readonly"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "history"
+            ]
+          },
+          "state": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "readonly": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "История событий",
+        "example": {
+          "id": "toilet.history",
+          "device_id": "toilet",
+          "type": "history",
+          "view": "",
+          "name": "Недавние посещения",
+          "state": [
+            "16:50",
+            "15:30",
+            "14:58",
+            "14:20"
+          ],
+          "readonly": true
+        }
+      },
+      "Entities.ServiceTypes.Switch": {
+        "type": "object",
+        "required": [
+          "type",
+          "view",
+          "state"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "switch"
+            ]
+          },
+          "view": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "lock",
+                  "socket"
+                ]
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Режим отображения сервиса на клиенте.\n\nlock – отображать как замок.\n\nsocket – отображать как розетку."
+          },
+          "state": {
+            "type": "boolean",
+            "description": "Состояние устройства.\n\nСостояние true – переключатель включен (замок открыт, розетка работает).\n\nСостояние false – переключатель выключен (замок закрыт, розетка не работает)."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entities.Service"
+          }
+        ],
+        "description": "Переключатель (розетка, замок и т.д.).\n\nСостояние true – переключатель включен (замок открыт, розетка работает).\n\nСостояние false – переключатель выключен (замок закрыт, розетка не работает).",
+        "example": {
+          "id": "socket.switch",
+          "device_id": "socket",
+          "type": "switch",
+          "name": "Розетка",
+          "view": "socket",
+          "state": true,
+          "readonly": false
+        }
+      },
+      "Entities.id": {
+        "type": "string",
+        "description": "Уникальный идентификатор ресурса.",
+        "example": "id"
+      },
+      "Errors.NotFoundError": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "error",
+              "message"
+            ],
+            "properties": {
+              "error": {
+                "type": "string",
+                "enum": [
+                  "NOT_FOUND"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "description": "Ресурс не найден."
+      },
+      "Errors.ReadonlyServiceError": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "error",
+              "message"
+            ],
+            "properties": {
+              "error": {
+                "type": "string",
+                "enum": [
+                  "READONLY_SERVICE"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "description": "Состояние сервиса доступно только для чтения."
+      },
+      "Errors.ValidationError": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "error",
+              "message"
+            ],
+            "properties": {
+              "error": {
+                "type": "string",
+                "enum": [
+                  "VALIDATION"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "description": "Ошибка валидации."
+      },
+      "Responses.IgnoreResponse": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ]
+          }
+        },
+        "description": "Запрос проигнорирован."
+      },
+      "Versions": {
+        "type": "string",
+        "enum": [
+          "0.1.0"
+        ]
+      }
+    }
+  }
+}
