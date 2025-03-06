@@ -1,0 +1,13 @@
+{
+    "name": "iot-specification",
+    "version": "0.1.0",
+    "type": "module",
+    "devDependencies": {
+        "@typespec/compiler": "0.66.0",
+        "@typespec/http": "0.66.0",
+        "@typespec/openapi3": "0.66.0",
+        "@typespec/rest": "0.66.0",
+        "@typespec/versioning": "^0.66.0"
+    },
+    "private": true
+}
