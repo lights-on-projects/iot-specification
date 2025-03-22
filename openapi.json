@@ -63,7 +63,6 @@
                       "data": [
                         {
                           "id": "drawer.switch",
-                          "device_id": "drawer",
                           "type": "switch",
                           "view": "lock",
                           "name": "Замок",
@@ -72,7 +71,6 @@
                         },
                         {
                           "id": "drawer.mode",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "mode",
                           "name": "Тип",
@@ -81,7 +79,6 @@
                         },
                         {
                           "id": "drawer.door",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -99,7 +96,6 @@
                       "data": [
                         {
                           "id": "drawer.switch",
-                          "device_id": "drawer",
                           "type": "switch",
                           "view": "lock",
                           "name": "Замок",
@@ -108,7 +104,6 @@
                         },
                         {
                           "id": "drawer.mode",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "mode",
                           "name": "Тип",
@@ -117,7 +112,6 @@
                         },
                         {
                           "id": "drawer.door",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -135,7 +129,6 @@
                       "data": [
                         {
                           "id": "drawer.switch",
-                          "device_id": "drawer",
                           "type": "switch",
                           "view": "lock",
                           "name": "Замок",
@@ -144,7 +137,6 @@
                         },
                         {
                           "id": "drawer.mode",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "mode",
                           "name": "Тип",
@@ -153,7 +145,6 @@
                         },
                         {
                           "id": "drawer.door",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -171,7 +162,6 @@
                       "data": [
                         {
                           "id": "drawer.switch",
-                          "device_id": "drawer",
                           "type": "switch",
                           "view": "lock",
                           "name": "Замок",
@@ -180,7 +170,6 @@
                         },
                         {
                           "id": "drawer.mode",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "mode",
                           "name": "Тип",
@@ -189,7 +178,6 @@
                         },
                         {
                           "id": "drawer.door",
-                          "device_id": "drawer",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -207,7 +195,6 @@
                       "data": [
                         {
                           "id": "parcel.button",
-                          "device_id": "parcel",
                           "type": "button",
                           "view": "",
                           "name": "Замок",
@@ -216,7 +203,6 @@
                         },
                         {
                           "id": "parcel.door",
-                          "device_id": "parcel",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -234,7 +220,6 @@
                       "data": [
                         {
                           "id": "parcel.button",
-                          "device_id": "parcel",
                           "type": "button",
                           "view": "",
                           "name": "Замок",
@@ -243,7 +228,6 @@
                         },
                         {
                           "id": "parcel.door",
-                          "device_id": "parcel",
                           "type": "boolean-sensor",
                           "view": "door",
                           "name": "Дверь локера",
@@ -261,7 +245,6 @@
                       "data": [
                         {
                           "id": "socket.switch",
-                          "device_id": "socket",
                           "type": "switch",
                           "name": "Розетка",
                           "view": "socket",
@@ -270,7 +253,6 @@
                         },
                         {
                           "id": "socket.counter",
-                          "device_id": "socket",
                           "type": "counter",
                           "view": "",
                           "name": "Расход (кВт⋅ч)",
@@ -288,7 +270,6 @@
                       "data": [
                         {
                           "id": "socket.switch",
-                          "device_id": "socket",
                           "type": "switch",
                           "name": "Розетка",
                           "view": "socket",
@@ -297,7 +278,6 @@
                         },
                         {
                           "id": "socket.counter",
-                          "device_id": "socket",
                           "type": "counter",
                           "view": "",
                           "name": "Расход (кВт⋅ч)",
@@ -315,7 +295,6 @@
                       "data": [
                         {
                           "id": "toilet.history",
-                          "device_id": "toilet",
                           "type": "history",
                           "view": "",
                           "name": "Недавние посещения",
@@ -329,7 +308,6 @@
                         },
                         {
                           "id": "toilet.opening-counter",
-                          "device_id": "toilet",
                           "type": "counter",
                           "view": "",
                           "name": "Открытий",
@@ -338,7 +316,6 @@
                         },
                         {
                           "id": "toilet.closing-counter",
-                          "device_id": "toilet",
                           "type": "counter",
                           "view": "",
                           "name": "Закрытий",
@@ -437,7 +414,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.switch",
-                        "device_id": "drawer",
                         "type": "switch",
                         "view": "lock",
                         "name": "Замок",
@@ -452,7 +428,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.switch",
-                        "device_id": "drawer",
                         "type": "switch",
                         "view": "lock",
                         "name": "Замок",
@@ -467,7 +442,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.switch",
-                        "device_id": "drawer",
                         "type": "switch",
                         "view": "lock",
                         "name": "Замок",
@@ -482,7 +456,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.switch",
-                        "device_id": "drawer",
                         "type": "switch",
                         "view": "lock",
                         "name": "Замок",
@@ -497,7 +470,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.mode",
-                        "device_id": "drawer",
                         "type": "boolean-sensor",
                         "view": "mode",
                         "name": "Тип",
@@ -512,7 +484,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.mode",
-                        "device_id": "drawer",
                         "type": "boolean-sensor",
                         "view": "mode",
                         "name": "Тип",
@@ -527,7 +498,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.door",
-                        "device_id": "drawer",
                         "type": "boolean-sensor",
                         "view": "door",
                         "name": "Дверь локера",
@@ -542,7 +512,6 @@
                       "status": "ok",
                       "data": {
                         "id": "drawer.door",
-                        "device_id": "drawer",
                         "type": "boolean-sensor",
                         "view": "door",
                         "name": "Дверь локера",
@@ -557,7 +526,6 @@
                       "status": "ok",
                       "data": {
                         "id": "parcel.button",
-                        "device_id": "parcel",
                         "type": "button",
                         "view": "",
                         "name": "Замок",
@@ -572,7 +540,6 @@
                       "status": "ok",
                       "data": {
                         "id": "parcel.button",
-                        "device_id": "parcel",
                         "type": "button",
                         "view": "",
                         "name": "Замок",
@@ -587,7 +554,6 @@
                       "status": "ok",
                       "data": {
                         "id": "parcel.door",
-                        "device_id": "parcel",
                         "type": "boolean-sensor",
                         "view": "door",
                         "name": "Дверь локера",
@@ -602,7 +568,6 @@
                       "status": "ok",
                       "data": {
                         "id": "parcel.door",
-                        "device_id": "parcel",
                         "type": "boolean-sensor",
                         "view": "door",
                         "name": "Дверь локера",
@@ -617,7 +582,6 @@
                       "status": "ok",
                       "data": {
                         "id": "socket.switch",
-                        "device_id": "socket",
                         "type": "switch",
                         "name": "Розетка",
                         "view": "socket",
@@ -632,7 +596,6 @@
                       "status": "ok",
                       "data": {
                         "id": "socket.switch",
-                        "device_id": "socket",
                         "type": "switch",
                         "name": "Розетка",
                         "view": "socket",
@@ -647,7 +610,6 @@
                       "status": "ok",
                       "data": {
                         "id": "socket.counter",
-                        "device_id": "socket",
                         "type": "counter",
                         "view": "",
                         "name": "Расход (кВт⋅ч)",
@@ -662,7 +624,6 @@
                       "status": "ok",
                       "data": {
                         "id": "socket.counter",
-                        "device_id": "socket",
                         "type": "counter",
                         "view": "",
                         "name": "Расход (кВт⋅ч)",
@@ -677,7 +638,6 @@
                       "status": "ok",
                       "data": {
                         "id": "toilet.history",
-                        "device_id": "toilet",
                         "type": "history",
                         "view": "",
                         "name": "Недавние посещения",
@@ -697,7 +657,6 @@
                       "status": "ok",
                       "data": {
                         "id": "toilet.opening-counter",
-                        "device_id": "toilet",
                         "type": "counter",
                         "view": "",
                         "name": "Открытий",
@@ -712,7 +671,6 @@
                       "status": "ok",
                       "data": {
                         "id": "toilet.closing-counter",
-                        "device_id": "toilet",
                         "type": "counter",
                         "view": "",
                         "name": "Закрытий",
@@ -1233,7 +1191,6 @@
         "type": "object",
         "required": [
           "id",
-          "device_id",
           "type",
           "view",
           "name",
@@ -1243,14 +1200,6 @@
         "properties": {
           "id": {
             "$ref": "#/components/schemas/Entities.id"
-          },
-          "device_id": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Entities.id"
-              }
-            ],
-            "description": "Идентификатор устройства, частью которого является сервис."
           },
           "type": {
             "type": "string",
@@ -1340,7 +1289,6 @@
         "description": "Бинарный датчик (отображает одно из двух значений).",
         "example": {
           "id": "parcel.door",
-          "device_id": "parcel",
           "type": "boolean-sensor",
           "view": "door",
           "name": "Дверь локера",
@@ -1377,7 +1325,6 @@
         "description": "Кнопка.\n\nНа сервис с типом button можно послать только значение true,\nчто символизирует нажатие на кнопку.\nПосле нажатия кнопка возвращается в исходное положение,\nпоэтому сервис с типом button всегда имеет состояние false.",
         "example": {
           "id": "parcel.button",
-          "device_id": "parcel",
           "type": "button",
           "view": "",
           "name": "Замок",
@@ -1417,7 +1364,6 @@
         "description": "Счетчик чего-либо (расход электроэнергии, кол-во открытий и закрытий двери).",
         "example": {
           "id": "socket.counter",
-          "device_id": "socket",
           "type": "counter",
           "view": "",
           "name": "Расход (кВт⋅ч)",
@@ -1460,7 +1406,6 @@
         "description": "История событий",
         "example": {
           "id": "toilet.history",
-          "device_id": "toilet",
           "type": "history",
           "view": "",
           "name": "Недавние посещения",
@@ -1515,7 +1460,6 @@
         "description": "Переключатель (розетка, замок и т.д.).\n\nСостояние true – переключатель включен (замок открыт, розетка работает).\n\nСостояние false – переключатель выключен (замок закрыт, розетка не работает).",
         "example": {
           "id": "socket.switch",
-          "device_id": "socket",
           "type": "switch",
           "name": "Розетка",
           "view": "socket",

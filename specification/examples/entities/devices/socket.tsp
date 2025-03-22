@@ -10,7 +10,6 @@ const switchStateOn = true;
 
 const switchOff = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   name: "Розетка",
   view: "socket",
@@ -20,7 +19,6 @@ const switchOff = #{
 
 const switchOn = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   name: "Розетка",
   view: "socket",
@@ -30,7 +28,6 @@ const switchOn = #{
 
 const counterOff = #{
   id: counter_id,
-  device_id: device_id,
   type: "counter",
   view: "",
   name: "Расход (кВт⋅ч)",
@@ -40,7 +37,6 @@ const counterOff = #{
 
 const counterOn = #{
   id: counter_id,
-  device_id: device_id,
   type: "counter",
   view: "",
   name: "Расход (кВт⋅ч)",

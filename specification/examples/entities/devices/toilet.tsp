@@ -8,7 +8,6 @@ const closingCounter_id = "toilet.closing-counter";
 
 const history = #{
   id: history_id,
-  device_id: device_id,
   type: "history",
   view: "",
   name: "Недавние посещения",
@@ -18,7 +17,6 @@ const history = #{
 
 const openingCounter = #{
   id: openingCounter_id,
-  device_id: device_id,
   type: "counter",
   view: "",
   name: "Открытий",
@@ -28,7 +26,6 @@ const openingCounter = #{
 
 const closingCounter = #{
   id: closingCounter_id,
-  device_id: device_id,
   type: "counter",
   view: "",
   name: "Закрытий",

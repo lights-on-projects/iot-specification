@@ -11,7 +11,6 @@ const switchStateOpen = true;
 
 const switchClosedLocked = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   view: "lock",
   name: "Замок",
@@ -21,7 +20,6 @@ const switchClosedLocked = #{
 
 const switchOpenLocked = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   view: "lock",
   name: "Замок",
@@ -31,7 +29,6 @@ const switchOpenLocked = #{
 
 const switchClosedUnlocked = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   view: "lock",
   name: "Замок",
@@ -41,7 +38,6 @@ const switchClosedUnlocked = #{
 
 const switchOpenUnlocked = #{
   id: switch_id,
-  device_id: device_id,
   type: "switch",
   view: "lock",
   name: "Замок",
@@ -51,7 +47,6 @@ const switchOpenUnlocked = #{
 
 const doorClosed = #{
   id: door_id,
-  device_id: device_id,
   type: "boolean-sensor",
   view: "door",
   name: "Дверь локера",
@@ -61,7 +56,6 @@ const doorClosed = #{
 
 const doorOpen = #{
   id: door_id,
-  device_id: device_id,
   type: "boolean-sensor",
   view: "door",
   name: "Дверь локера",
@@ -71,7 +65,6 @@ const doorOpen = #{
 
 const modeLocked = #{
   id: mode_id,
-  device_id: device_id,
   type: "boolean-sensor",
   view: "mode",
   name: "Тип",
@@ -81,7 +74,6 @@ const modeLocked = #{
 
 const modeUnlocked = #{
   id: mode_id,
-  device_id: device_id,
   type: "boolean-sensor",
   view: "mode",
   name: "Тип",
