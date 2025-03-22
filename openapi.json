@@ -1154,21 +1154,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "event": {
-                    "$ref": "#/components/schemas/Entities.Event"
-                  }
-                },
-                "required": [
-                  "event"
-                ]
+                "$ref": "#/components/schemas/Entities.Event"
               },
               "example": {
-                "event": {
-                  "service_id": "socket.counter",
-                  "state": "16"
-                }
+                "service_id": "socket.counter",
+                "state": "16"
               }
             }
           }

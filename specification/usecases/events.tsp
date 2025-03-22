@@ -17,7 +17,7 @@ interface Events {
   @post
   @summary("Сохранить событие Home Assistant")
   @returnsDoc("Событие сохранено.")
-  createEvent(event: Event):
+  createEvent(@bodyRoot event: Event):
     | CreatedResourceResponse<never>
     | IgnoreResponse
     | ValidationResponse
